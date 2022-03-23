@@ -90,4 +90,4 @@ console.log('RESPONDA A TODAS AS PERGUNTAS CORRETAMENTE!');
   } else { (resultado == 5)
     console.log('Júlia foi morta em sua batalha...')} 
 
-  console.log()
+    console.log();
