@@ -95,9 +95,10 @@ const prompt = require('prompt-sync')();
       console.log();
       console.log('<<<|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|>>>');
       console.log();
-     }  let et = prompt('');
+     }  
+      limpar = prompt('');
       console.clear();
-   }    
+    }    
  {
        if(pontuacaojog == pontuacaomaq) {     
       console.log(`${nome} e ${oponente} empataram. Não deixe esse placar assim, jogue novamente!`)
