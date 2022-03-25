@@ -96,8 +96,10 @@ const prompt = require('prompt-sync')();
       console.log('<<<|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|>>>');
       console.log();
      }  
-      limpar = prompt('');
+   {
+       limpar = prompt('');
       console.clear();
+       }
     }    
  {
        if(pontuacaojog == pontuacaomaq) {     
