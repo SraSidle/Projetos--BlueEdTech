@@ -58,8 +58,6 @@ console.clear(prompt(`Digite ENTER para continuar.`));
 //variável para guardar o valor pra validar o while
 var playagain  = prompt(`Digite 's' para começar. `).toLowerCase();
 
-
-
 //estrutura de repetição para manter o jogo ou jorgar novamente
 while (playagain == 's' ) {
 
@@ -74,12 +72,12 @@ const Rocky = {
   points : 0,
 
   punch : function (){
-    const punchpotency = this.force * this.velocity
+    const punchpotency = this.force *  this.velocity 
     return punchpotency
   },
 
   retour : function () {
-    const retourpotency = this.cordenation * this.energy
+    const retourpotency =  this.coordenation *  this.energy
     return retourpotency
   }
 }
@@ -87,11 +85,11 @@ const Rocky = {
 //variáveis / objeto que guarda o status do adversário
    const Apollo = {
    name: 'Apollo Creed',
-   force: (Math.floor(Math.random() * 6 + 24)),
-   resistance : (Math.floor(Math.random() * 6 + 25)),
-   velocity:(Math.floor(Math.random() * 6 + 24)),
-   coordenation : (Math.floor(Math.random() * 6 + 22)),
-   energy : (Math.floor(Math.random() * 6 + 45)),
+   force: (Math.floor(Math.random() * 8 + 30)),
+   resistance : (Math.floor(Math.random() * 5 + 31)),
+   velocity:(Math.floor(Math.random() * 7 + 31)),
+   coordenation : (Math.floor(Math.random() * 6 + 27)),
+   energy : (Math.floor(Math.random() * 6 + 51)),
    points : 0,
 
    punch : function (){
@@ -109,12 +107,12 @@ const Rocky = {
 function dualstatus (){
 
   console.log(` 
-                                      ${Rocky.name.cyan}          ${Apollo.name.america}       
+                                      ${Rocky.name.cyan}          ${Apollo.name.yellow}       
               >> Força            |       ${Rocky.force}                      ${Apollo.force}         
               >> Resistência      |       ${Rocky.resistance}                      ${Apollo.resistance}        
               >> Velocidade       |       ${Rocky.velocity}                      ${Apollo.velocity}           
               >> Coordenação      |       ${Rocky.coordenation}                      ${Apollo.coordenation}      
-              >> Energia          |       ${Rocky.energy}                       ${Apollo.energy}                      
+              >> Energia          |       ${Rocky.energy}                      ${Apollo.energy}                      
 
 `)
 
@@ -136,6 +134,10 @@ return
 // variáveis para exibição do tempo ao usuário
   const partsday = ['manhã' , 'Tarde' , 'Noite']
 const days = ['Domingo' , 'Segunda' , 'Terça' , 'Quarta' , 'Quinta' , 'Sexta' , 'Sábado']
+
+    console.clear(prompt(`\n INSTRUÇÕES: Será sempre bom dosar treino e descanso. A energia do Rocky não pode
+          cair pra abaixo de 50, pois entrará no ringue em desvatagem. \n
+          Além disso, é recomendado uma boa distribuição de cada um dos treinos. `));
 
 //Laços de repetição para controlar o tempo, representa o ciclo de treino
   for(i = 0; i < 1 ; i++){
@@ -159,7 +161,7 @@ const days = ['Domingo' , 'Segunda' , 'Terça' , 'Quarta' , 'Quinta' , 'Sexta' ,
       const train = prompt(``).toLowerCase();
 
       //condicionais que controlam o status do personagem de acordo com a resposta à variável 'train'
-       if (Rocky.energy > 6) {
+       if (Rocky.energy > 50) {
         if (train === 'f') {
           Rocky.force += 8 //é += 3, não ao contrário
           Rocky.energy -= 5
@@ -186,7 +188,7 @@ const days = ['Domingo' , 'Segunda' , 'Terça' , 'Quarta' , 'Quinta' , 'Sexta' ,
           }
           
        } else { 
-         while (Rocky.energy <= 5)  {
+         while (Rocky.energy <= 50)  {
           console.log(`${Rocky.name}, precisa descansar.`)
            const descanso = prompt(`descansar [e]`)
              if(descanso == 'e'){
@@ -203,7 +205,7 @@ const days = ['Domingo' , 'Segunda' , 'Terça' , 'Quarta' , 'Quinta' , 'Sexta' ,
 //função que altomatizará os golpes adversários
 function golpes () {
   console.clear(prompt('pressione ENTER'));
-   const go = ['Jab' , 'Cruzado' , 'recuando' , 'tentar Upper']
+   const go = ['Jab' , 'Cruzado' , 'recuando' , 'Uppercut']
      goadv  = [];
      goadv  = Math.floor(Math.random() * 3);
     
@@ -211,14 +213,14 @@ function golpes () {
 // if (veladv > 3 && foradv > 4 && cord > 3) faz um Math.random para tentar dar um uppercut >>>> fica pra próxima kkk
 
 //condicionais que controlarão o status tanto do personagem quanto do adversario
-      if( goadv == 0) {
+      if( goadv == 0 ) {
     Apollo.velocity -= 2
     Rocky.resistance -= 1
     Rocky.force -= 1
     Rocky.energy -= 3
     Apollo.energy -= 1
     Apollo.points += 3
-      console.log(Apollo.name , 'lançou um' , go[goadv].cyan , 'contra você');
+      console.log(Apollo.name , 'lançou um' , go[goadv].cyan , 'contra você\n');
 
   } else if (goadv == 1) {
     Apollo.velocity -= 1
@@ -227,46 +229,47 @@ function golpes () {
     Apollo.energy -= 2
     Rocky.energy -= 4
     Apollo.points += 5
-      console.log(Apollo.name, 'lançou um' , go[goadv].cyan , 'contra você');
+      console.log(Apollo.name, 'lançou um' , go[goadv].cyan , 'contra você\n');
 
    } else if (goadv == 2)  {  
     Apollo.velocity -= 3
     Apollo.coordenation -= 2
     Apollo.energy -= 1
     Apollo.points += 2
-      console.log(Apollo.name , 'está recuando e lhe dando espaço.');
-   }
-
-   if (goadv == 3) {
-   const derrubar = ['' , '' , 'Uppercut' , '' , '']
-   goderrubar = [];
-   goderrubar = Math.floor(Math.random() * 4)
-
-   if(goderrubar == 2 && Rocky.retour < Apollo.punch ) {
-    Apollo.velocity -= 2
+      console.log(Apollo.name , 'está recuando e lhe dando espaço.\n');
+   } else {(goadv == 3)
+    if (Rocky.retour() < Apollo.punch()) {
+    Apollo.velocity -= 3
     Apollo.force -= 1
     Rocky.energy -= 5
-    Rocky.resistance -= 3
+    Rocky.resistance -= 5
     Rocky.velocity -= 3
     Apollo.energy -= 2
     Apollo.points += 10
-       console.log(Apollo.name , 'lançou um' , derrubar[goderrubar]);
-
+       console.log(Apollo.name , 'lançou um' ,go[goadv].cyan  , 'contra você.\n');
    } else {
-    console.log(prompt());
-    }
-  }
-  console.log();
+    Apollo.velocity -= 2
+    Apollo.force -= 1
+    Rocky.energy -= 2
+    Rocky.resistance -= 2
+    Rocky.velocity -= 3
+    Apollo.energy -= 2
+    Apollo.points += 2
+       console.log(Apollo.name , 'tentou lançar um' ,  go[goadv].cyan , 'contra você. Mas você conseguiu recuar.\n');  
+  } 
+}
   return
 }
 //funçaão que será usada para perguntar ao usuário como proceder em luta.
 function combat() {
 
+  console.clear(prompt('Pressione ENTER para continuar. '))
+
   console.log(`
       O que deseja fazer?
-     [1] => Golpear +++                      
-     [2] => Ser atingido ++ 
-     [3] => Recuar +                 
+     [1] => Golpear      | +++                      
+     [2] => Ser atingido | ++ 
+     [3] => Recuar       | +                 
 `);
 
    reaction = +prompt(``);//guardará a resposta e de acordo com as condicionais(linha 285 - 355)
@@ -305,9 +308,9 @@ function combat() {
     Rocky.velocity -= 2
     Rocky.force -= 1
     Rocky.energy -= 2
-    Apollo.force -= 3
-    Apollo.resistance -= 3
-    Apollo.velocity -= 2
+    Apollo.force -= 4
+    Apollo.resistance -= 4
+    Apollo.velocity -= 1
     Apollo.energy -= 5
     Rocky.points += 10
       console.log('Você acertou um Uppercut contra seu adversário. '.gray.bold);
@@ -333,7 +336,7 @@ function combat() {
  
  } else if  (reaction == 3) {
 
-   if(Rocky.retour > Apollo.punch) {
+   if (Rocky.retour() > Apollo.punch()) {
     Rocky.velocity -= 2
     Rocky.coordenation -= 1
     Apollo.force -= 2
@@ -342,7 +345,9 @@ function combat() {
     Rocky.energy += 1
       console.log('Você conseguiu desviar do golpe adversário.'.green);
 
- } else if  (Rocky.retour < Apollo.punch){
+ } else if  (Rocky.retour() < Apollo.punch()){
+    console.log(Rocky.retour())
+    console.log(Apollo.punch())
     Rocky.resistance -= 2
     Rocky.force -= 2
     Rocky.points += 1
@@ -351,20 +356,19 @@ function combat() {
      } 
    }  
      console.clear(prompt('press ENTER'));
-     console.log('Balboa'.cyan , Rocky.points , 'X', 'Creed'.america , Apollo.points);
+     console.log('Balboa'.cyan , Rocky.points , 'X', 'Creed'.yellow , Apollo.points);
  return
    }
 
   function points(){
   
   if(Rocky.points > Apollo.points) {
-    console.log(`${Rocky.name.cyan} venceu  de ${Apollo.name.america} por um placar de: ${Rocky.points.yellow} X ${Apollo.points.yellow} `);
+    console.log(`${Rocky.name.cyan} venceu  de ${Apollo.name.yellow} por um placar de: ${Rocky.points} X ${Apollo.points} `);
     console.log(`Infelizmente você perdeu essa luta.`);
      return
-} else {
-    console.log(`${Apollo.name.america} venceu de ${Rocky.name.cyan}por um placar de: ${Apollo.points.yellow} X ${Rocky.points.yellow} `);
+} else if(Rocky.points < Apollo.points) {
+    console.log(`${Apollo.name.yellow} venceu de ${Rocky.name.cyan}por um placar de: ${Apollo.points} X ${Rocky.points} `);
     console.log(`Sua vitória te fez um lutador notável do boxe.`);
-
      return
   }
 }
@@ -372,40 +376,48 @@ function combat() {
 const rounds = [ 1 , 2 , 3 , 4 , 5];
 
 function luta(){
+
+    console.clear(prompt(`Chegou o dia da grande luta. Você se prepapou para enfrentar um adversário potente. \n
+     Cuidado!! Se sua energia ou sua resistência zerar, você será nocauteado! `));
+     console.clear(prompt(`Boa sorte, o round 1 irá começar! `));
   
     for(const round of rounds){
+      if(Rocky.energy < 1 || Rocky.resistance < 1){
+        break
+      } else if (Apollo.energy < 1 || Apollo.resistance < 1){
+        break
+      }
       for (i = 0 ; i < 5 ; i++){
 
-        console.clear();
+     console.clear(prompt(`\n\n :::::::>>>>>> ROUND ${round} <<<<<<<<<<:::::::::      \n\n `.blue.bold )); // mostra o round até 5
 
-    console.log(` 
+    golpes(); //chama a função golpes
+    combat(); //chama a função combat
     
-    
-                           :::::::>>>>>> ROUND ${round} <<<<<<<<<<:::::::::       `.red.bold)
-
-    golpes()
-    combat()
-    if (Rocky.energy < 1){
-      console.log(`${Rocky.name} foi nocauteado.`.red) //
+      if (Rocky.energy < 1 || Rocky.resistance < 1){
+      console.log(`${Rocky.name} foi nocauteado.\n`.red) //
+      dualstatus();
       console.clear(prompt('Aperte ENTER para continuar. '))
       console.log(`Infelizmente você perdeu essa luta.`);
-      break
-
-  } else if (Apollo.energy < 1){
-      console.log(`Você nocauteou ${Apollo.name}`.green);//
-      console.clear(prompt('Aperte ENTER para continuar. ')); // fiz essas alterações na esperança de dar certo, mas não rolou
+       break  //condição que, se for verdadeira, vai para o laço de repetiçaõ e declarar nocaute
+    
+  } else if (Apollo.energy < 1 || Apollo.resistance < 1){
+      console.log(`Você nocauteou ${Apollo.name}\n`.green);//
+      dualstatus();
+      console.clear(prompt('Aperte ENTER para continuar. '));
 
       console.log(`Sua vitória te fez um lutador notável do boxe. `);
-      break
-      
-  }
+      break  //condição que, se for verdadeira, vai para o laço de repetiçaõ e declarar nocaute
+  } 
+     console.clear();
+
     dualstatus();}
-    console.clear(prompt(`O round ${round} terminou.`))
-    }
+    points(); // essa função ta sendo chamada, e eu queria que só fosse chamada quando os rounds acabassem
+    //manti ela fora mas mesmo depois de um nocaute, ela era chamada
+    } 
   }
    luta();
- points();
-
+ 
  console.log(`Quer jogar novamente? Digite [s] para jogar novamente.`);
  var playagain = prompt(``).toLowerCase();
 }
